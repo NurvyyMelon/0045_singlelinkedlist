@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-Class Node 
+class Node 
 {
 public:
     int noMhs;
@@ -10,7 +10,7 @@ public:
 };
 
 class LinkedList 
-{;
+{
     Node *START;
 
 public:
@@ -26,8 +26,8 @@ public:
         cout << "Masukkan NIM : ";
         cin >> nim;
 
-        Node *newNode = new Node();
-        node *nodeBaru = nim;
+        Node *nodeBaru = new Node();
+        nodeBaru->noMhs = nim;
 
         if (START == NULL || nim <= START->noMhs)
         {
@@ -42,4 +42,26 @@ public:
             START = nodeBaru;
             return;
         }
+
+        Node *previous = START;
+        Node *current = START;
+
+        while (current != NULL && nim >= current->noMhs)
+        {
+            if (nim == current->noMhs)
+            {
+                cout << "nDuplikasi noMhs tidak diizinkan\n";
+                return;
+            }
+            previous = current;
+            current = current->next;
+        }
+        nodeBaru->next = current;
+        previous->next = nodeBaru;
+    }
+
+    bool listEmpty()
+    {
+        return START == NULL;
+    }
 
