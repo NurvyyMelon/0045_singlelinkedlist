@@ -18,4 +18,16 @@ public:
     {
         START = NULL;
     }
-}
+
+
+    void addNode()
+    {
+        int nim;
+        cout << "Masukkan NIM : ";
+        cin >> nim;
+
+        Node *newNode = new Node();
+        node *nodeBaru = nim;
+
+
+
